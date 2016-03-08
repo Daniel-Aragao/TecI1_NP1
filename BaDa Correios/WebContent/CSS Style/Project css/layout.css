@@ -4,7 +4,6 @@
 
 #nav-tolbar {
 	background-color: #F57C00;
-	
 }
 
 .navbar-orange {
@@ -24,7 +23,7 @@
 }
 
 .nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
-	color: #fff;
+	color: #ffe0b2;
 	background-color: #FF9800;
 	border-color: #337ab7;
 	background-color: #FF9800;
@@ -32,6 +31,10 @@
 
 .dropbox-orange {
 	
+}
+
+.dropdown-menu>li>a{
+    color:#ffffff;
 }
 
 .navbar-creditos {
@@ -48,6 +51,36 @@
 
 body {
 	background-color: #FFE0B2;
+	color: #212121;
+}
+
+.breadcrumb {
+	background-color: #ffe0b2;
+	border: 0px solid rgba(245, 245, 245, 1);
+	border-radius: 4px;
+	display: block;
+}
+
+.breadcrumb li {
+	font-size: 14px;
+}
+
+.breadcrumb a {
+	color: #536DFE;
+}
+
+.breadcrumb a:hover {
+	color: rgba(42, 100, 150, 1);
+	text-decoration: none;
+}
+
+.breadcrumb>.active {
+	color: #000;
+}
+
+.breadcrumb>li+li:before {
+	color: #000;
+	content: "|";
 }
 
 .text-blue {

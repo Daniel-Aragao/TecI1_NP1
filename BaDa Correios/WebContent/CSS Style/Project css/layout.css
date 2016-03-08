@@ -1,5 +1,5 @@
 .navbar-fixed-top {
-	height: 6em;
+	height: 3em;
 }
 
 #nav-tolbar {
@@ -39,6 +39,7 @@
 
 .navbar-creditos {
 	color: white;
+	padding: 10px 40px;
 }
 
 .navbar-creditos-black {

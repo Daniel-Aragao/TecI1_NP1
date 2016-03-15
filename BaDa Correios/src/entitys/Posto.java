@@ -1,6 +1,9 @@
 package entitys;
 
-public class Posto {
-	private int codigo;
-	private String nome;
+public class Posto extends Entity{
+	private String endereco;
+	
+	public Posto(){
+		
+	}
 }

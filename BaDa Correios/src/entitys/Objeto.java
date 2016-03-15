@@ -1,15 +1,12 @@
 package entitys;
 
-import java.util.ArrayList;
-
-public class Objeto {
-	private int numero, remetenteId, destinatarioId;
+public class Objeto extends Entity{
+	private int remetenteId, destinatarioId;
 	private String descricao;
 	private Pessoa remetente, destinatario;
 	private double altura, largura, profundidade;
-	private double valor;
+	private double valor, peso;
 	private Posto origem;
-	private ArrayList<Posto> movimentacao;
 }
 
 /*

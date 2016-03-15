@@ -1,9 +1,8 @@
 package entitys;
 
-public class Pessoa {
-	private String nome, rua, complemento, bairro, cep, estado, cidade;
+public class Pessoa extends Entity{
+	private String rua, complemento, bairro, cep, estado, cidade;
 	private int numero;
-	
 	public Pessoa(){
 		
 	}

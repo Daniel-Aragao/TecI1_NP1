@@ -29,6 +29,8 @@ public class CadastrarPessoas extends HttpServlet {
 		dispatcher = request.getRequestDispatcher("Paginas/Cadastros/CadastrarPessoas.html");
 		dispatcher.include(request, response);
 		
+		
+		
 		dispatcher = request.getRequestDispatcher("Paginas/rodape.html");
 		dispatcher.include(request, response);
 		

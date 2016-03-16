@@ -1,12 +1,11 @@
 package entitys;
 
 public class Objeto extends Entity{
-	private int remetenteId, destinatarioId;
+
+	private String numero;
 	private String descricao;
-	private Pessoa remetente, destinatario;
-	private double altura, largura, profundidade;
-	private double valor, peso;
-	private Posto origem;
+	private double peso, altura, largura, profundidade, valor;
+	
 }
 
 /*

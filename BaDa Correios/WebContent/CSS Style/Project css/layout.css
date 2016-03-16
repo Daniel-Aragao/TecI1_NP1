@@ -13,6 +13,11 @@
     padding-left: 0px;
 }
 
+.valorLabel {
+	padding-top: 7px;
+	padding-left: 175px;
+}
+
 .navbar-fixed-top {
 	height: 3em;
 }

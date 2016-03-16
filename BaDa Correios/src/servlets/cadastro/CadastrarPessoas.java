@@ -43,7 +43,7 @@ public class CadastrarPessoas extends HttpServlet {
        
 		pWriter.println("<div class=\"form-group input-group col-lg-6\">");
 		pWriter.println("	<select class=\"form-control\" name=\"Cidade\">");
-		pWriter.println("		<option>Selecione o estado...</option>");
+		pWriter.println("		<option>Selecione a cidade...</option>");
 		for(Entity elemento : localizacoesRep.getCidades(0)){
 			pWriter.println("	<option>"+elemento.getNome()+"</option>");
 		}			

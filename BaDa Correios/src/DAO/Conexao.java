@@ -14,6 +14,6 @@ public class Conexao {
 	}
 	
 	public static Connection getConexao() throws SQLException{
-		return DriverManager.getConnection("jdbc:mysql://localhost/bd_correios", "root", "123456");
+		return DriverManager.getConnection("jdbc:mysql://localhost/BADAcorreios", "root", "123456");
 	}
 }

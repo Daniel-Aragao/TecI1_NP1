@@ -53,6 +53,12 @@ public class CadastrarPessoas extends HttpServlet {
 		pWriter.println("</form>");
 		pWriter.println("</div>");
 		
+		pWriter.println("<div class=\"form-group col-lg-6\" id=\"cadastrarObjetoBtn\">");
+		pWriter.println(
+				"<button type=\"submit\" value=\"Submit\">Cadastrar</button>");
+		pWriter.println("</div>");
+		
+		
 		dispatcher = request.getRequestDispatcher("Paginas/rodape.html");
 		dispatcher.include(request, response);
 		

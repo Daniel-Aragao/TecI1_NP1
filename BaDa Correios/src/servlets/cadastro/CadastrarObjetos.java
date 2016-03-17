@@ -70,11 +70,19 @@ public class CadastrarObjetos extends HttpServlet {
 		pWriter.println("</div>");
 		pWriter.println("<div class=\"form-group col-lg-2\">");
 		pWriter.println(
-				"<input id=\"ValorOutput\" type=\"text\" name=\"ValorObjeto\" class=\"form-control\" placeholder=\"Insert a button here\">");
+				"<button>Gerar Valor</button>");
 		pWriter.println("</div>");
+
+		
+		pWriter.println("<div class=\"form-group form-right\" id=\"cadastrarObjetoBtn\">");
+		pWriter.println(
+				"<button type=\"submit\" value=\"Submit\">Cadastrar</button>");
+		pWriter.println("</div>");
+		
 
 		pWriter.println("</form>");
 		pWriter.println("</div>");
+		pWriter.println("<br><br><br>");
 
 		dispatcher = request.getRequestDispatcher("Paginas/rodape.html");
 		dispatcher.include(request, response);

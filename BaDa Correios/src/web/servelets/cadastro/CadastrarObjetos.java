@@ -1,4 +1,4 @@
-package servlets.cadastro;
+package web.servelets.cadastro;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,9 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.RepositorioPosto_e_Localizacao;
-import entitys.Entity;
-import entitys.Objeto;
+import domain.entitys.Objeto;
 
 /**
  * Servlet implementation class CadastrarObjetos

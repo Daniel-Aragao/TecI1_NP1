@@ -1,10 +1,12 @@
-package entitys;
+package domain.entitys;
 
-public class Objeto extends Entity{
+public class Objeto{
 
 	private String numero;
 	private String descricao;
 	private double peso, altura, largura, profundidade, valor;
+	private int remetendeId, destinatarioId;
+	
 	
 }
 

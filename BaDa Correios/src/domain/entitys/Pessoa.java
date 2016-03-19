@@ -1,21 +1,27 @@
-package entitys;
+package domain.entitys;
 
-public class Pessoa extends Entity{
-	private String rua, complemento, bairro, cep, estado, cidade;
+public class Pessoa{
+	private String nome, rua, complemento, bairro, cep; 
+	private int estadoId, cidadeId, paisId;
 	private int numero;
 	public Pessoa(){
 		
 	}
 
-	public Pessoa(String nome, String rua, String complemento, String bairro, String cep, String estado, String cidade,
+	public Pessoa(String nome, String rua, String complemento, String bairro, String cep, int pais, int estado, int cidade,
 			int numero) {
 		this.nome = nome;
+		
 		this.rua = rua;
 		this.complemento = complemento;
+		
 		this.bairro = bairro;
 		this.cep = cep;
-		this.estado = estado;
-		this.cidade = cidade;
+		
+		this.estadoId = estado;
+		this.cidadeId = cidade;
+		this.paisId = pais;
+		
 		this.numero = numero;
 	}
 

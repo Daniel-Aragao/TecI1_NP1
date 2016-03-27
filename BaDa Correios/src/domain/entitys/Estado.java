@@ -3,6 +3,13 @@ package domain.entitys;
 public class Estado {
 	private int id, paisId;
 	private String nome, uf;
+		
+	public Estado(int id, String nome, String uf) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.uf = uf;
+	}
 	
 	public int getId() {
 		return id;

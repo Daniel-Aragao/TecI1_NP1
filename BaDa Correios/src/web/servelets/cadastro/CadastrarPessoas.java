@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import DAO.Repositorio;
+import DAO.RepositorioEstado;
 import domain.entitys.Estado;
 import domain.entitys.Pessoa;
 
@@ -31,8 +31,8 @@ public class CadastrarPessoas extends HttpServlet {
 		dispatcher = request.getRequestDispatcher("Paginas/Cadastros/CadastrarPessoas.html");
 		dispatcher.include(request, response);
 		
-		Repositorio<Estado> estadoRep = new Repositorio<Estado>();
-		Repositorio<Estado> cidadeRep = new Repositorio<Estado>();
+		RepositorioEstado estadoRep = new RepositorioEstado();
+//		Repositorio<Estado> cidadeRep = new Repositorio<Estado>();
 		
 		ArrayList<Estado> estados = estadoRep.getAll();
 		

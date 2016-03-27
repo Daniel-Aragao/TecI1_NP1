@@ -135,3 +135,7 @@ body {
 a {
 	color: white;
 }
+
+.table>thead>tr.info>th {
+    background-color: #536DFE;
+}

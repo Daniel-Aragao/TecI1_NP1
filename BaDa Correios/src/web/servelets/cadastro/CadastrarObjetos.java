@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.entitys.Objeto;
-
 /**
  * Servlet implementation class CadastrarObjetos
  */
@@ -91,7 +89,7 @@ public class CadastrarObjetos extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Objeto o = new Objeto();
+//		Objeto o = new Objeto();
 
 	}
 }

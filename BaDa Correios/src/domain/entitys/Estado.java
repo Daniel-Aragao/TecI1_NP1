@@ -1,5 +1,7 @@
 package domain.entitys;
 
+import java.util.Comparator;
+
 public class Estado {
 	private int id, paisId;
 	private String nome, uf;
@@ -34,5 +36,15 @@ public class Estado {
 	}
 	public void setUf(String uf) {
 		this.uf = uf;
+	}
+	public static Comparator<Estado> getNomeComparator(){
+		return new Comparator<Estado>(){
+
+			@Override
+			public int compare(Estado a, Estado b) {
+				return a.nome.compareTo(b.nome);
+			}
+			
+		} ;
 	}
 }

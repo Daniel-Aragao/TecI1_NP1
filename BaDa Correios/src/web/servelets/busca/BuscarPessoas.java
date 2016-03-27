@@ -39,57 +39,59 @@ public class BuscarPessoas extends HttpServlet {
 		dispatcher = request.getRequestDispatcher("Paginas/Buscar/BuscarPessoaTable.html");
 		dispatcher.include(request, response);
 		
-		pWriter.println("					<tr>");
 		if(busca != null){
 			RepositorioPessoa pessoasRep = new RepositorioPessoa();
 			ArrayList<Pessoa> pessoas = pessoasRep.getList(busca);
+			pessoas.sort(Pessoa.getNomeComparator());
+			
 			
 			RepositorioEstado estadoRep = new RepositorioEstado();
 			RepositorioCidade cidadeRep = new RepositorioCidade();
 			
 			for(Pessoa p : pessoas){
-				pWriter.println("				</td>");
+				pWriter.println("					<tr>");
+				pWriter.println("				<td>");
 				pWriter.println(p.getNome());
 				pWriter.println("				</td>");
 				
-				pWriter.println("				</td>");
+				pWriter.println("				<td>");
 				pWriter.println(p.getRua());
 				pWriter.println("				</td>");
 
-				pWriter.println("				</td>");
+				pWriter.println("				<td>");
 				pWriter.println(p.getNumero());
 				pWriter.println("				</td>");
 				
-				pWriter.println("				</td>");
+				pWriter.println("				<td>");
 				pWriter.println(p.getComplemento());
 				pWriter.println("				</td>");
 				
-				pWriter.println("				</td>");
+				pWriter.println("				<td>");
 				pWriter.println(p.getBairro());
 				pWriter.println("				</td>");
 				
-				pWriter.println("				</td>");
+				pWriter.println("				<td>");
 				pWriter.println(p.getCep());
 				pWriter.println("				</td>");
 				
-				pWriter.println("				</td>");
-				pWriter.println(estadoRep.get(p.getEstadoId()));
-				pWriter.println("				</td>");
-				
-				pWriter.println("				</td>");
-				pWriter.println(cidadeRep.get(p.getCidadeId()));
+				pWriter.println("				<td>");
+				pWriter.println(estadoRep.get(p.getEstadoId()).getNome());
 				pWriter.println("				</td>");
 				
+				pWriter.println("				<td>");
+				pWriter.println(cidadeRep.get(p.getCidadeId()).getNome());
 				pWriter.println("				</td>");
+				
+				pWriter.println("				<td>");
 				pWriter.println("Alterar");
 				pWriter.println("				</td>");
 				
-				pWriter.println("				</td>");
+				pWriter.println("				<td>");
 				pWriter.println("Excluir");
 				pWriter.println("				</td>");
+				pWriter.println("					</tr>");
 			}
 		}
-		pWriter.println("					</tr>");
 		pWriter.println("				</tbody>");
 		pWriter.println("			</table>");
 		pWriter.println("		</div>");

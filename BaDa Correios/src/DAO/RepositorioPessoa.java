@@ -6,15 +6,46 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import domain.entitys.Cidade;
 import domain.entitys.Pessoa;
 import domain.interfaces.IRepositorio;
 
 public class RepositorioPessoa implements IRepositorio<Pessoa>{
 
 	@Override
-	public void adicionar(Pessoa elemento) {
+	public void adicionar(Pessoa pessoa) {
 		Connection con = null;
+		PreparedStatement stmt = null;
+
+		try {
+			con = Conexao.getConexao();
+			stmt = con.prepareStatement(
+					"insert into pessoa (nome, rua, numero, complemento, bairro, cep, cidadeId, paisId, estadoId) values(?,?,?,?,?,?,?,?,?)");
+
+			stmt.setString(1, pessoa.getNome());
+			stmt.setString(2, pessoa.getRua());
+			stmt.setInt(3, pessoa.getNumero());
+			stmt.setString(4, pessoa.getComplemento());
+			stmt.setString(5, pessoa.getBairro());
+			stmt.setString(6, pessoa.getCep());
+			stmt.setInt(7, pessoa.getCidadeId());
+			stmt.setInt(8, 1);
+			stmt.setInt(9, pessoa.getEstadoId());
+
+			stmt.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
 		
 	}
 
@@ -50,7 +81,7 @@ public class RepositorioPessoa implements IRepositorio<Pessoa>{
 				int cidadeId = rs.getInt("cidadeId");
 				int numero = rs.getInt("numero");
 
-				Pessoa pessoa = new Pessoa( nome, rua, complemento, 
+				Pessoa pessoa = new Pessoa(id, nome, rua, complemento, 
 						 bairro, cep, estadoId, cidadeId, numero);
 				pessoas.add(pessoa);
 			}

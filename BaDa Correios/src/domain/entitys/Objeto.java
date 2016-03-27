@@ -1,5 +1,7 @@
 package domain.entitys;
 
+import java.util.Comparator;
+
 public class Objeto{
 
 	private String numero;
@@ -62,6 +64,16 @@ public class Objeto{
 		this.destinatarioId = destinatarioId;
 	}
 	
+	public static Comparator<Objeto> getNomeComparator(){
+		return new Comparator<Objeto>(){
+
+			@Override
+			public int compare(Objeto a, Objeto b) {
+				return a.numero.compareTo(b.numero);
+			}
+			
+		} ;
+	}
 	
 }
 

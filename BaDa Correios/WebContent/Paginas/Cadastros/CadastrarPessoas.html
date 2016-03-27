@@ -5,7 +5,7 @@
 		</ol>
 </div>
 <div class="container-fluid">
-    <form class="" action="CadastroPessoas" method="POST">
+    <form id="CadastroPessoasForm" class="" action="CadastrarPessoas" method="POST">
         <div class="col-lg-6">
             <div class="form-group input-group">
                 <label for="NomeInput">Nome Completo</label>
@@ -17,16 +17,16 @@
                 <label for="RuaInput">Endereço</label>
             </div>            
             <div class="form-group col-lg-8">
-                <input id="RuaInput" type="text" name="Rua" class="form-control" placeholder="Rua">
+                <input id="RuaInput" type="text" name="Rua" class="form-control " required placeholder="Rua">
             </div>                
             <div class="form-group col-lg-4">
-                <input id="NumeroInput" type="text" name="Numero" class="form-control DigitOnly" placeholder="Numero" onkeypress="mascara(this, '## #####-####')" maxlength="13"> <!--onkeypress="mascara(this, '## #####-####')"-->
+                <input id="NumeroInput" type="text" name="Numero" class="form-control DigitOnly " required placeholder="Numero" maxlength="9"> <!--onkeypress="mascara(this, '## #####-####')"-->
             </div>
             <div class="form-group col-lg-7">
-                <input id="ComplementoInput" type="text" name="Complemento" class="form-control" placeholder="Complemento">
+                <input id="ComplementoInput" type="text" name="Complemento" class="form-control " required placeholder="Complemento">
             </div>
             <div class="form-group col-lg-5">
-                <input id="BairroInput" type="text" name="Bairro" class="form-control" placeholder="Bairro">            
+                <input id="BairroInput" type="text" name="Bairro" class="form-control " required placeholder="Bairro">            
             </div>
         
             
@@ -34,6 +34,6 @@
                 <label for="CEPInput">CEP</label>
             </div>
                 
-                <div class="form-group input-group col-lg-6">
-                    <input id="CEPInput" type="text" name="CEP" onkeypress="mascara(this, '#####-###')" maxlength="9" class="form-control DigitOnly">
-                </div>
+            <div class="form-group input-group col-lg-6">
+                <input id="CEPInput" type="text" name="CEP" onkeypress="mascara(this, '#####-###')" maxlength="9" class="form-control DigitOnly " required>
+            </div>

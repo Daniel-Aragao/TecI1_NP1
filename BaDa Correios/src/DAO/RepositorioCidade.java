@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import domain.entitys.Cidade;
-import domain.entitys.Estado;
 import domain.interfaces.IRepositorio;
 
 public class RepositorioCidade implements IRepositorio<Cidade>{

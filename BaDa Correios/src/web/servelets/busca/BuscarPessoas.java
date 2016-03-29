@@ -36,10 +36,11 @@ public class BuscarPessoas extends HttpServlet {
 		
 		String busca = (String) request.getParameter("busca");
 		
-		dispatcher = request.getRequestDispatcher("Paginas/Buscar/BuscarPessoaTable.html");
-		dispatcher.include(request, response);
 		
 		if(busca != null){
+			dispatcher = request.getRequestDispatcher("Paginas/Buscar/BuscarPessoaTable.html");
+			dispatcher.include(request, response);
+			
 			RepositorioPessoa pessoasRep = new RepositorioPessoa();
 			ArrayList<Pessoa> pessoas = pessoasRep.getList(busca);
 			pessoas.sort(Pessoa.getNomeComparator());
@@ -83,11 +84,10 @@ public class BuscarPessoas extends HttpServlet {
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");
-				pWriter.println("Alterar");
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");
-				pWriter.println("Excluir");
+				pWriter.println("<a>Excluir</a>");
 				pWriter.println("				</td>");
 				pWriter.println("					</tr>");
 			}

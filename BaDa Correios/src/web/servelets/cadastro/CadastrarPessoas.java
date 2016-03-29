@@ -31,7 +31,7 @@ public class CadastrarPessoas extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Paginas/topo.html");
 		dispatcher.include(request, response);
 		
-		dispatcher = request.getRequestDispatcher("Paginas/Cadastros/CadastrarPessoas.html");
+		dispatcher = request.getRequestDispatcher("Paginas/Cadastros/CadastrarPessoasTopo.html");
 		dispatcher.include(request, response);
 		
 		RepositorioEstado estadoRep = new RepositorioEstado();
@@ -40,11 +40,26 @@ public class CadastrarPessoas extends HttpServlet {
 		ArrayList<Estado> estados = estadoRep.getAll();
 		ArrayList<Cidade> cidades;
 		
-		String EstadoId = request.getParameter("EstadoId");
+		String EstadoId = null;
 		
+		Pessoa pessoa = null;
+		try{
+			int pessoaId = Integer.parseInt(request.getParameter("Pessoaid"));
+			pessoa = new RepositorioPessoa().get(pessoaId);
+			EstadoId = pessoa.getEstadoId()+"";
+			
+			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"AlterarPessoa\" method=\"POST\">");			
+		}catch(NumberFormatException e){
+			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"CadastrarPessoas\" method=\"POST\">");			
+			
+		}	
 		
+		 
+		dispatcher = request.getRequestDispatcher("Paginas/Cadastros/CadastrarPessoasCentro.html");
+		dispatcher.include(request, response);
+		 
 		pWriter.println("<div class=\"form-group input-group col-lg-6\">");
-		pWriter.println("	<select required id=EstadoId class=\"form-control \" required name=\"EstadoId\">");
+		pWriter.println("	<select required id='EstadoId' class=\"form-control \" required name=\"EstadoId\">");
 		pWriter.println("		<option value=\"\">Selecione o estado...</option>");
 		for(Estado elemento : estados){
 			pWriter.println("	<option value="+elemento.getId()+">"+elemento.getNome()+"</option>");
@@ -53,7 +68,7 @@ public class CadastrarPessoas extends HttpServlet {
 		pWriter.println("</div>");		
        
 		pWriter.println("<div class=\"form-group input-group col-lg-6\">");
-		pWriter.println("	<select required id=\"CidadeId\" class=\"form-control \" required name=\"Cidade\">");
+		pWriter.println("	<select required id='CidadeId' class=\"form-control \" required name=\"Cidade\" "+((EstadoId!=null)?"":"disabled")+">");
 		pWriter.println("		<option value=\"\">Selecione a cidade...</option>");
 		if(EstadoId != null){
 			cidades = cidadeRep.getList(EstadoId);
@@ -78,9 +93,23 @@ public class CadastrarPessoas extends HttpServlet {
 		
 		
 		pWriter.println("<script src=\"JavaScript/Project/CadastrarPessoa.js\"></script>");
+		if(pessoa != null){
+			
+			pWriter.println("<script>");
+			pWriter.println("document.getElementById('NomeInput').value = '"+ pessoa.getNome()+"'");
+			pWriter.println("document.getElementById('RuaInput').value = '"+ pessoa.getRua()+"'");
+			pWriter.println("document.getElementById('NumeroInput').value = "+ pessoa.getNumero());
+			pWriter.println("document.getElementById('ComplementoInput').value = '"+ pessoa.getComplemento()+"'");
+			pWriter.println("document.getElementById('BairroInput').value = '"+ pessoa.getBairro()+"'");
+			pWriter.println("document.getElementById('CEPInput').value = "+ pessoa.getCep());
+			pWriter.println("document.getElementById('EstadoId').value = "+ pessoa.getEstadoId());
+			pWriter.println("document.getElementById('CidadeId').value = "+ pessoa.getCidadeId());
+			pWriter.println("</script>");
+		}
 		
 		dispatcher = request.getRequestDispatcher("Paginas/rodape.html");
 		dispatcher.include(request, response);
+
 		
 		pWriter.close();
 		

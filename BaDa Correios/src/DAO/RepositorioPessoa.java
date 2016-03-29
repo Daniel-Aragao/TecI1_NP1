@@ -53,8 +53,48 @@ public class RepositorioPessoa implements IRepositorio<Pessoa>{
 
 	@Override
 	public Pessoa get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		Pessoa pessoa = null;
+		
+		try {
+			con = Conexao.getConexao();
+			stmt = con.prepareStatement(
+					"SELECT * FROM pessoa WHERE  id = ?");
+			stmt.setInt(1, id);
+			
+			ResultSet rs = stmt.executeQuery();
+
+			if(rs.next()){
+				String nome = rs.getString("nome");
+				String rua = rs.getString("rua"); 
+				String complemento = rs.getString("complemento"); 
+				String bairro = rs.getString("bairro"); 
+				String cep = rs.getString("cep"); 
+				int estadoId = rs.getInt("estadoId");
+				int cidadeId = rs.getInt("cidadeId");
+				int numero = rs.getInt("numero");
+
+				pessoa = new Pessoa(id, nome, rua, complemento, 
+						 bairro, cep, estadoId, cidadeId, numero);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return pessoa;
 	}
 
 	@Override

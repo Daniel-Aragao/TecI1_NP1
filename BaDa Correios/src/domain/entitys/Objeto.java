@@ -9,6 +9,24 @@ public class Objeto{
 	private double peso, altura, largura, profundidade, valor;
 	private int remetendeId, destinatarioId;
 	
+	public Objeto(String numero, String descricao, double peso, double altura, double largura, double profundidade,
+			double valor, int remetendeId, int destinatarioId) {
+		
+		if(numero == null || descricao == null || peso == 0 || altura == 0 || largura == 0
+				|| profundidade == 0 || valor == 0 || remetendeId == 0 || destinatarioId == 0){
+			throw new RuntimeException("Nenhum parametro de Pessoa pode ser nulo ou zero");
+		}
+		
+		this.numero = numero;
+		this.descricao = descricao;
+		this.peso = peso;
+		this.altura = altura;
+		this.largura = largura;
+		this.profundidade = profundidade;
+		this.valor = valor;
+		this.remetendeId = remetendeId;
+		this.destinatarioId = destinatarioId;
+	}
 	public String getNumero() {
 		return numero;
 	}

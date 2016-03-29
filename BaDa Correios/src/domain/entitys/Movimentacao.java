@@ -8,12 +8,11 @@ public class Movimentacao {
 	private int posto_id, Id;
 	private Timestamp data_hora;
 
-	public Movimentacao(String descricao, String objeto_numero, int posto_id, int id, Timestamp data_hora) {
+	public Movimentacao(String descricao, String objeto_numero, int posto_id) {
 		super();
 		this.descricao = descricao;
 		this.objeto_numero = objeto_numero;
 		this.posto_id = posto_id;
-		Id = id;
 		this.data_hora = data_hora;
 	}
 
@@ -55,9 +54,5 @@ public class Movimentacao {
 
 	public void setData_hora(Timestamp data_hora) {
 		this.data_hora = data_hora;
-	}
-
-	public Movimentacao() {
-
 	}
 }

@@ -5,8 +5,13 @@ public class Posto{
 	private String nome, endereco;
 	private int id, cidadeId;
 	
-	public Posto(int cidadeId) {
+	
+
+	public Posto(String nome, String endereco, int id, int cidadeId) {
 		super();
+		this.nome = nome;
+		this.endereco = endereco;
+		this.id = id;
 		this.cidadeId = cidadeId;
 	}
 

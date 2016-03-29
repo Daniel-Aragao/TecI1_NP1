@@ -9,13 +9,13 @@
     <form class="" action="CadastrarObjetos" method="POST">
         <div class="col-lg-6">
             <div class="form-group input-group">
-                <label for="NomeInput">Nome do Objeto:</label>
-                <input id="NomeInput" type="text" name="Nome" class="form-control">
+                <label for="NumeroInput">Número do Objeto:</label>
+                <input id="NumeroInput" type="text" name="Numero" class="form-control" required>
             </div>
 
             <div class="form-group input-group">
                 <label for="DescricaoInput">Descrição do objeto:</label>
-                <textarea rows="4" cols="50" id="DescricaoInput" name="Descricao" class="form-control"></textarea>
+                <textarea rows="4" cols="50" id="DescricaoInput" name="Descricao" class="form-control" required></textarea>
             </div>
             
 
@@ -23,15 +23,15 @@
                 <label for="RuaInput">Informações do Objeto: </label>
             </div>            
             <div class="form-group col-lg-3">
-                <input id="PesoInput" type="text" name="Peso" class="form-control" placeholder="Peso">
+                <input id="PesoInput" type="number" step="any" name="Peso" class="form-control" placeholder="Peso" required min=0>
             </div>                
             <div class="form-group col-lg-3">
-                <input id="LarguraInput" type="text" name="Largura" class="form-control" placeholder="Largura">
+                <input id="LarguraInput" type="number" step="any" name="Largura" class="form-control" placeholder="Largura" required min=0>
             </div>
             <div class="form-group col-lg-3">
-                <input id="AlturaInput" type="text" name="Altura" class="form-control" placeholder="Altura">
+                <input id="AlturaInput" type="number" step="any" name="Altura" class="form-control" placeholder="Altura" required min=0>
             </div>
             <div class="form-group col-lg-3">
-                <input id="ProfundidadeInput" type="text" name="Profundidade" class="form-control" placeholder="Profundidade">            
+                <input id="ProfundidadeInput" type="number" step="any" name="Profundidade" class="form-control" placeholder="Profundidade" required min=0>            
             </div>
         

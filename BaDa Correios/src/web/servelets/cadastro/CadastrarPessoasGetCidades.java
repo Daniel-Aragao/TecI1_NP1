@@ -24,10 +24,10 @@ public class CadastrarPessoasGetCidades extends HttpServlet {
 		String codigo = "";
 		String EstadoId = request.getParameter("EstadoId");
 		if(EstadoId.equalsIgnoreCase("0")){
-			codigo += "		<option value=0>Selecione a cidade...</option>";			
+			codigo += "		<option value=\"\">Selecione a cidade...</option>";			
 		}else{
 			ArrayList<Cidade> cidades = new RepositorioCidade().getList(EstadoId);
-			codigo += "		<option value=0>Selecione a cidade...</option>";
+			codigo += "		<option value=\"\">Selecione a cidade...</option>";
 			for(Cidade elemento : cidades){
 				codigo +="<option value="+elemento.getId()+">"+elemento.getNome()+"</option>";
 			}

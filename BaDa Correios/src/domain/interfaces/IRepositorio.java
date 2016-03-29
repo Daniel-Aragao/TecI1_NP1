@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface IRepositorio <T>{
 	
-	public void adicionar(T elemento);
+	public boolean adicionar(T elemento);
 	
 	public T get(int id);
 	

@@ -12,9 +12,9 @@ import domain.interfaces.IRepositorio;
 public class RepositorioCidade implements IRepositorio<Cidade>{
 
 	@Override
-	public void adicionar(Cidade elemento) {
+	public boolean adicionar(Cidade elemento) {
 		// TODO Auto-generated method stub
-		
+		return true;
 	}
 
 	@Override

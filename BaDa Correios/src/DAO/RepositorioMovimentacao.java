@@ -5,30 +5,24 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import domain.entitys.Objeto;
+import domain.entitys.Movimentacao;
 import domain.interfaces.IRepositorio;
 
-public class RepositorioObjeto implements IRepositorio<Objeto>{
+public class RepositorioMovimentacao implements IRepositorio<Movimentacao>{
 
-	public boolean adicionar(Objeto objeto) {
-
+	@Override
+	public boolean adicionar(Movimentacao mov) {
 		Connection con = null;
 		PreparedStatement stmt = null;
 
 		try {
 			con = Conexao.getConexao();
 			stmt = con.prepareStatement(
-					"insert into objeto (numero, descricao, peso, altura, largura, profundidade, valor, remetente_id, destinatario_id) values(?,?,?,?,?,?,?,?,?)");
+					"INSERT INTO movimentacao(descricao, objeto_numero, posto_id) VALUES (?,?,?)");
 
-			stmt.setString(1, objeto.getNumero());
-			stmt.setString(2, objeto.getDescricao());
-			stmt.setDouble(3, objeto.getPeso());
-			stmt.setDouble(4, objeto.getAltura());
-			stmt.setDouble(5, objeto.getLargura());
-			stmt.setDouble(6, objeto.getProfundidade());
-			stmt.setDouble(7, objeto.getValor());
-			stmt.setInt(8, objeto.getRemetendeId());
-			stmt.setInt(9, objeto.getDestinatarioId());
+			stmt.setString(1, mov.getDescricao());
+			stmt.setString(2, mov.getObjeto_numero());
+			stmt.setInt(3, mov.getPosto_id());
 
 			stmt.executeUpdate();
 
@@ -47,24 +41,24 @@ public class RepositorioObjeto implements IRepositorio<Objeto>{
 				return false;
 			}
 		}
-
 	}
 
 	@Override
-	public Objeto get(int id) {
+	public Movimentacao get(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Objeto> getAll() {
+	public ArrayList<Movimentacao> getList(String param) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public ArrayList<Objeto> getList(String param) {
+	public ArrayList<Movimentacao> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

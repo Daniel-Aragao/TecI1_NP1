@@ -44,8 +44,8 @@ public class CadastrarPessoas extends HttpServlet {
 		
 		
 		pWriter.println("<div class=\"form-group input-group col-lg-6\">");
-		pWriter.println("	<select id=EstadoId class=\"form-control \" required name=\"EstadoId\">");
-		pWriter.println("		<option value=0>Selecione o estado...</option>");
+		pWriter.println("	<select required id=EstadoId class=\"form-control \" required name=\"EstadoId\">");
+		pWriter.println("		<option value=\"\">Selecione o estado...</option>");
 		for(Estado elemento : estados){
 			pWriter.println("	<option value="+elemento.getId()+">"+elemento.getNome()+"</option>");
 		}			
@@ -53,8 +53,8 @@ public class CadastrarPessoas extends HttpServlet {
 		pWriter.println("</div>");		
        
 		pWriter.println("<div class=\"form-group input-group col-lg-6\">");
-		pWriter.println("	<select id=\"CidadeId\" class=\"form-control \" required name=\"Cidade\">");
-		pWriter.println("		<option value=0>Selecione a cidade...</option>");
+		pWriter.println("	<select required id=\"CidadeId\" class=\"form-control \" required name=\"Cidade\">");
+		pWriter.println("		<option value=\"\">Selecione a cidade...</option>");
 		if(EstadoId != null){
 			cidades = cidadeRep.getList(EstadoId);
 			for(Cidade elemento : cidades){

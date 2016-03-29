@@ -12,7 +12,7 @@ import domain.interfaces.IRepositorio;
 public class RepositorioPessoa implements IRepositorio<Pessoa>{
 
 	@Override
-	public void adicionar(Pessoa pessoa) {
+	public boolean adicionar(Pessoa pessoa) {
 		Connection con = null;
 		PreparedStatement stmt = null;
 
@@ -32,9 +32,10 @@ public class RepositorioPessoa implements IRepositorio<Pessoa>{
 			stmt.setInt(9, pessoa.getEstadoId());
 
 			stmt.executeUpdate();
-
+			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		} finally {
 			try {
 				if (stmt != null)
@@ -43,6 +44,7 @@ public class RepositorioPessoa implements IRepositorio<Pessoa>{
 					con.close();
 			} catch (SQLException e) {
 				e.printStackTrace();
+				return false;
 			}
 		}
 
@@ -105,8 +107,49 @@ public class RepositorioPessoa implements IRepositorio<Pessoa>{
 
 	@Override
 	public ArrayList<Pessoa> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		ArrayList<Pessoa> pessoas = new ArrayList<Pessoa>();
+
+		try {
+			con = Conexao.getConexao();
+			stmt = con.prepareStatement(
+					"SELECT * FROM pessoa");
+			
+			ResultSet rs = stmt.executeQuery();
+
+			while(rs.next()){
+				int id = rs.getInt("id");
+				String nome = rs.getString("nome");
+				String rua = rs.getString("rua"); 
+				String complemento = rs.getString("complemento"); 
+				String bairro = rs.getString("bairro"); 
+				String cep = rs.getString("cep"); 
+				int estadoId = rs.getInt("estadoId");
+				int cidadeId = rs.getInt("cidadeId");
+				int numero = rs.getInt("numero");
+
+				Pessoa pessoa = new Pessoa(id, nome, rua, complemento, 
+						 bairro, cep, estadoId, cidadeId, numero);
+				pessoas.add(pessoa);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return pessoas;
 	}
 	
 }

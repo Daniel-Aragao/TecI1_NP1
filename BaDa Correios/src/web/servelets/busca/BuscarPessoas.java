@@ -84,6 +84,7 @@ public class BuscarPessoas extends HttpServlet {
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");
+				pWriter.println("<a href='CadastrarPessoas?Pessoaid="+p.getId()+"'>Alterar</a>");
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");

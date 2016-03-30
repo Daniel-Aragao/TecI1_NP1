@@ -48,9 +48,14 @@ public class BuscarPessoas extends HttpServlet {
 			
 			RepositorioEstado estadoRep = new RepositorioEstado();
 			RepositorioCidade cidadeRep = new RepositorioCidade();
-			
+			int i = 1;
 			for(Pessoa p : pessoas){
+				
 				pWriter.println("					<tr>");
+				pWriter.println("				<td>");
+				pWriter.println(i+". ");
+				pWriter.println("				</td>");
+				
 				pWriter.println("				<td>");
 				pWriter.println(p.getNome());
 				pWriter.println("				</td>");
@@ -88,11 +93,13 @@ public class BuscarPessoas extends HttpServlet {
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");
-				pWriter.println("<a>Excluir</a>");
+				pWriter.println("<a href='#' onclick=\"confirmar('"+p.getNome()+"', '"+p.getId()+"')\";>Excluir</a>");
 				pWriter.println("				</td>");
 				pWriter.println("					</tr>");
+				i++;
 			}
 		}
+		pWriter.println("<script src='JavaScript/Project/BuscarPessoa.js'></script>");
 		pWriter.println("				</tbody>");
 		pWriter.println("			</table>");
 		pWriter.println("		</div>");

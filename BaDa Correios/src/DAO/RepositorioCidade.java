@@ -103,4 +103,16 @@ public class RepositorioCidade implements IRepositorio<Cidade>{
 		return cidades;
 	}
 
+	@Override
+	public boolean alterar(Cidade elemento) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeElement(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

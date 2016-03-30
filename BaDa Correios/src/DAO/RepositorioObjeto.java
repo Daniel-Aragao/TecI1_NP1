@@ -67,4 +67,16 @@ public class RepositorioObjeto implements IRepositorio<Objeto>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public boolean alterar(Objeto elemento) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeElement(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }

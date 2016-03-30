@@ -48,7 +48,8 @@ public class CadastrarPessoas extends HttpServlet {
 			pessoa = new RepositorioPessoa().get(pessoaId);
 			EstadoId = pessoa.getEstadoId()+"";
 			
-			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"AlterarPessoa\" method=\"POST\">");			
+			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"AlterarPessoa\" method=\"POST\">");
+			pWriter.println("<input type='hidden' name='PessoaId' value='"+pessoaId+"'>");
 		}catch(NumberFormatException e){
 			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"CadastrarPessoas\" method=\"POST\">");			
 			
@@ -81,7 +82,8 @@ public class CadastrarPessoas extends HttpServlet {
 		
 		pWriter.println("<div class=\"form-group\" id=\"cadastrarObjetoBtn\">");
 		pWriter.println(
-				"<button id=\"confirmButton\" class=\"btn btn-primary\" type=\"submit\" value=\"Submit\">Cadastrar</button>");
+				"<button id=\"confirmButton\" class=\"btn btn-primary\" type=\"submit\" value=\"Submit\">"+
+		((EstadoId != null)?"Alterar":"Cadastrar")+"</button>");
 		pWriter.println("</div>");
 		
 		pWriter.println("</div>");

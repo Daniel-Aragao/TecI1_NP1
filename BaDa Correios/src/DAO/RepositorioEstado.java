@@ -104,4 +104,16 @@ public class RepositorioEstado implements IRepositorio<Estado>{
 		return null;
 	}
 
+	@Override
+	public boolean alterar(Estado elemento) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeElement(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

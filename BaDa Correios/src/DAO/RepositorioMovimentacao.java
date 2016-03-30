@@ -61,4 +61,16 @@ public class RepositorioMovimentacao implements IRepositorio<Movimentacao>{
 		return null;
 	}
 
+	@Override
+	public boolean alterar(Movimentacao elemento) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeElement(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

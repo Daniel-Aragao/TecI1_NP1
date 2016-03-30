@@ -13,7 +13,6 @@ public class Movimentacao {
 		this.descricao = descricao;
 		this.objeto_numero = objeto_numero;
 		this.posto_id = posto_id;
-		this.data_hora = data_hora;
 	}
 
 	public String getDescricao() {

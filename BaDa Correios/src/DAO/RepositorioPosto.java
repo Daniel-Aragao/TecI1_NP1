@@ -71,4 +71,16 @@ public class RepositorioPosto implements IRepositorio<Posto>{
 		return postos;
 	}
 
+	@Override
+	public boolean alterar(Posto elemento) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean removeElement(int id) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

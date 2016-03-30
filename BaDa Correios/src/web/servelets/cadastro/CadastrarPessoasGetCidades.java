@@ -35,7 +35,6 @@ public class CadastrarPessoasGetCidades extends HttpServlet {
 		}
 		
 		response.setContentType("text/plain");
-		//		  response.setCharacterEncoding("ISO8859");
 		PrintWriter pWriter = response.getWriter();
 		pWriter.write(codigo);			
 		

@@ -1,9 +1,6 @@
 
-
-    //$('#CidadeId').prop("disabled", true);
-
-
-    var ajaxCidadeId = function() {
+//$( document ).ready(function() {
+    function ajaxCidadeId(e) {
         var Estado = $('#EstadoId').val();
         if (Estado != "") {
 
@@ -18,6 +15,9 @@
         }
     }
 
-    $("#EstadoId").change(ajaxCidadeId.apply());
+    $("#EstadoId").change(ajaxCidadeId);
+//});
+
+
 
 

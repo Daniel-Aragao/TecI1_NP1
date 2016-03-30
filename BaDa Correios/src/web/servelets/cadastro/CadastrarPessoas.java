@@ -31,8 +31,8 @@ public class CadastrarPessoas extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Paginas/topo.html");
 		dispatcher.include(request, response);
 		
-		dispatcher = request.getRequestDispatcher("Paginas/Cadastros/CadastrarPessoasTopo.html");
-		dispatcher.include(request, response);
+		
+		pWriter.println("<div class=\"container-fluid\">");
 		
 		RepositorioEstado estadoRep = new RepositorioEstado();
 		RepositorioCidade cidadeRep = new RepositorioCidade();

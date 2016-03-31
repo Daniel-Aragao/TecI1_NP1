@@ -2,6 +2,7 @@ package DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -52,20 +53,137 @@ public class RepositorioObjeto implements IRepositorio<Objeto>{
 
 	@Override
 	public Objeto get(int id) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		Objeto objeto = null;
+
+		try {
+			con = Conexao.getConexao();
+			stmt = con.prepareStatement(
+					"SELECT * FROM objeto WHERE  numero = ?");
+			stmt.setInt(1, id);
+			
+			ResultSet rs = stmt.executeQuery();
+
+			while(rs.next()){
+				String numero = rs.getString("numero");
+				String descricao = rs.getString("descricao");
+				double peso = rs.getDouble("peso");
+				double altura = rs.getDouble("altura");
+				double largura = rs.getDouble("largura");
+				double profundidade = rs.getDouble("profundidade");
+				double valor = rs.getDouble("valor");
+				int remetendeId = rs.getInt("remetente_Id");
+				int destinatarioId = rs.getInt("destinatario_Id");
+				
+				
+				objeto = new Objeto(numero, descricao, peso, altura, largura, profundidade,
+						valor, remetendeId, destinatarioId);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return objeto;
 	}
 
 	@Override
 	public ArrayList<Objeto> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		ArrayList<Objeto> objeto = new ArrayList<Objeto>();
+		try {
+			con = Conexao.getConexao();
+			stmt = con.prepareStatement("SELECT * FROM objeto");
+			ResultSet rs = stmt.executeQuery();
+			while (rs.next()) {
+				String numero = rs.getString("numero");
+				String descricao = rs.getString("descricao");
+				double peso = rs.getDouble("peso");
+				double altura = rs.getDouble("altura");
+				double largura = rs.getDouble("largura");
+				double profundidade = rs.getDouble("profundidade");
+				double valor = rs.getDouble("valor");
+				int remetenteId = rs.getInt("remetente_Id");
+				int destinatarioId = rs.getInt("destinatario_Id");
+				Objeto obj = new Objeto(numero, descricao, peso, altura, largura, profundidade, valor, remetenteId,
+						destinatarioId);
+				objeto.add(obj);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		return objeto;
 	}
 
 	@Override
 	public ArrayList<Objeto> getList(String param) {
-		// TODO Auto-generated method stub
-		return null;
+		Connection con = null;
+		PreparedStatement stmt = null;
+		
+		ArrayList<Objeto> objetos = new ArrayList<Objeto>();
+
+		try {
+			con = Conexao.getConexao();
+			stmt = con.prepareStatement(
+					"SELECT * FROM objeto WHERE  numero = ?");
+			stmt.setString(1, param);
+			
+			ResultSet rs = stmt.executeQuery();
+
+			while(rs.next()){
+				String numero = rs.getString("numero");
+				String descricao = rs.getString("descricao");
+				double peso = rs.getDouble("peso");
+				double altura = rs.getDouble("altura");
+				double largura = rs.getDouble("largura");
+				double profundidade = rs.getDouble("profundidade");
+				double valor = rs.getDouble("valor");
+				int remetendeId = rs.getInt("remetendeId");
+				int destinatarioId = rs.getInt("destinatarioId");
+				
+				
+				Objeto objeto = new Objeto(numero, descricao, peso, altura, largura, profundidade,
+						valor, remetendeId, destinatarioId);
+				objetos.add(objeto);
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return objetos;
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package domain.entitys;
 
-import com.sun.jmx.snmp.Timestamp;
+import java.sql.Timestamp;
+import java.util.Calendar;
 
 public class Movimentacao {
 
@@ -8,11 +9,21 @@ public class Movimentacao {
 	private int posto_id, Id;
 	private Timestamp data_hora;
 
-	public Movimentacao(String descricao, String objeto_numero, int posto_id) {
+	public Movimentacao(int id, String descricao, String objeto_numero, int posto_id, Timestamp data_hora) {
 		super();
 		this.descricao = descricao;
 		this.objeto_numero = objeto_numero;
 		this.posto_id = posto_id;
+		this.data_hora = data_hora;
+		this.Id = id;
+	}
+
+	public Movimentacao(String descricaoMovimentacao, String numero, int postoId) {
+		super();
+		this.descricao = descricaoMovimentacao;
+		this.objeto_numero = numero;
+		this.posto_id = postoId;
+		this.data_hora = new Timestamp(Calendar.getInstance().getTime().getTime());
 	}
 
 	public String getDescricao() {

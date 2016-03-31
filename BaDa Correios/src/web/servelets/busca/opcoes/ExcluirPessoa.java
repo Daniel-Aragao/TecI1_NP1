@@ -22,7 +22,7 @@ public class ExcluirPessoa extends HttpServlet {
    
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 PrintWriter pWriter = response.getWriter();
-		
+		//após confirmação efetua a exclusão da pessoa selecionada
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Paginas/topo.html");
 		dispatcher.include(request, response);
 		try{

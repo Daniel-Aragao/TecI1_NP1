@@ -1,5 +1,6 @@
 a{
-	color: #FFF;
+	/*color: #FFF;*/
+	text-align: center;
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,

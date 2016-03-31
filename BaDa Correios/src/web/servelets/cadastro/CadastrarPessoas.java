@@ -47,10 +47,11 @@ public class CadastrarPessoas extends HttpServlet {
 			int pessoaId = Integer.parseInt(request.getParameter("Pessoaid"));
 			pessoa = new RepositorioPessoa().get(pessoaId);
 			EstadoId = pessoa.getEstadoId()+"";
-			
+			// início do formulário em caso de alteração
 			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"AlterarPessoa\" method=\"POST\">");
 			pWriter.println("<input type='hidden' name='PessoaId' value='"+pessoaId+"'>");
 		}catch(NumberFormatException e){
+			//início do formulário em caso de cadastro comum
 			pWriter.println("<form id=\"CadastroPessoasForm\" class=\"\" action=\"CadastrarPessoas\" method=\"POST\">");			
 			
 		}	
@@ -73,6 +74,7 @@ public class CadastrarPessoas extends HttpServlet {
 		pWriter.println("		<option value=\"\">Selecione a cidade...</option>");
 		if(EstadoId != null){
 			cidades = cidadeRep.getList(EstadoId);
+			// traz os dados previamente informados pela opção de alteração, se for uma alteração
 			for(Cidade elemento : cidades){
 				pWriter.println("<option value="+elemento.getId()+">"+elemento.getNome()+"</option>");
 			}	
@@ -96,7 +98,7 @@ public class CadastrarPessoas extends HttpServlet {
 		
 		pWriter.println("<script src=\"JavaScript/Project/CadastrarPessoa.js\"></script>");
 		if(pessoa != null){
-			
+			// script que preenche os campos automáticamente em caso de alteração
 			pWriter.println("<script>");
 			pWriter.println("document.getElementById('NomeInput').value = '"+ pessoa.getNome()+"'");
 			pWriter.println("document.getElementById('RuaInput').value = '"+ pessoa.getRua()+"'");

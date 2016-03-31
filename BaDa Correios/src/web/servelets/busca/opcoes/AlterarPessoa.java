@@ -31,7 +31,8 @@ public class AlterarPessoa extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Paginas/topo.html");
 		dispatcher.include(request, response);
 		
-		
+//		recebe o request com todas as informações para efetuar um update na pessoa que foi alterada,
+//		recebendo todos os seus campos alterados ou não.
 		try{
 			int id = Integer.parseInt(request.getParameter("PessoaId"));
 			String nome = request.getParameter("Nome");

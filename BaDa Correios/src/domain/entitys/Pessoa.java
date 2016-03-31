@@ -138,7 +138,7 @@ public class Pessoa{
 
 			@Override
 			public int compare(Pessoa a, Pessoa b) {
-				return a.nome.compareTo(b.nome);
+				return a.nome.toLowerCase().compareTo(b.nome.toLowerCase());
 			}
 			
 		} ;

@@ -26,9 +26,11 @@ public class BuscarPessoas extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pWriter = response.getWriter();
 		
+		//inserção do layout
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Paginas/topo.html");
 		dispatcher.include(request, response);
 		
+		//inicio do formulário de busca
 		pWriter.println("<form action=\"BuscarPessoas\" method=\"GET\">  ");
 			dispatcher = request.getRequestDispatcher("Paginas/Buscar/BuscarTopo.html");
 			dispatcher.include(request, response);
@@ -36,8 +38,9 @@ public class BuscarPessoas extends HttpServlet {
 		
 		String busca = (String) request.getParameter("busca");
 		
-		
+		//testa se a busca já foi efetuada
 		if(busca != null){
+			//topo da tabela
 			dispatcher = request.getRequestDispatcher("Paginas/Buscar/BuscarPessoaTable.html");
 			dispatcher.include(request, response);
 			
@@ -49,6 +52,7 @@ public class BuscarPessoas extends HttpServlet {
 			RepositorioEstado estadoRep = new RepositorioEstado();
 			RepositorioCidade cidadeRep = new RepositorioCidade();
 			int i = 1;
+			//construção da tabela de resultados da busca
 			for(Pessoa p : pessoas){
 				
 				pWriter.println("					<tr>");
@@ -89,16 +93,17 @@ public class BuscarPessoas extends HttpServlet {
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");
-				pWriter.println("<a href='CadastrarPessoas?Pessoaid="+p.getId()+"'>Alterar</a>");
+				pWriter.println("<a href='CadastrarPessoas?Pessoaid="+p.getId()+"'><span class='glyphicon glyphicon-pencil'></span></a>");
 				pWriter.println("				</td>");
 				
 				pWriter.println("				<td>");
-				pWriter.println("<a href='#' onclick=\"confirmar('"+p.getNome()+"', '"+p.getId()+"')\";>Excluir</a>");
+				pWriter.println("<a href='#' onclick=\"confirmar('"+p.getNome()+"', '"+p.getId()+"')\";><span class='glyphicon glyphicon-remove'></span></a>");
 				pWriter.println("				</td>");
 				pWriter.println("					</tr>");
 				i++;
 			}
 		}
+		//inserção do javascript para utilização na página
 		pWriter.println("<script src='JavaScript/Project/BuscarPessoa.js'></script>");
 		pWriter.println("				</tbody>");
 		pWriter.println("			</table>");

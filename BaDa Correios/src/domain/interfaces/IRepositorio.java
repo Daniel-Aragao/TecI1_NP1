@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public interface IRepositorio <T>{
 	
+	// facilitar o uso das interfaces criando um padrão para as mesmas
+	
 	public boolean adicionar(T elemento);
 	
 	public boolean alterar(T elemento);

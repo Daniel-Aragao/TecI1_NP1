@@ -27,6 +27,8 @@ public class BaDaCorreios extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter pWriter = response.getWriter();
 		
+		//home page
+		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("Paginas/topo.html");
 		dispatcher.include(request, response);
 		

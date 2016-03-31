@@ -33,7 +33,7 @@ public class CadastrarPessoasGetCidades extends HttpServlet {
 			}
 			
 		}
-		
+		// servlet responsável pelo ajax que carrega as cidades após alterar o estado
 		response.setContentType("text/plain");
 		PrintWriter pWriter = response.getWriter();
 		pWriter.write(codigo);			

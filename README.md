@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/Daniel-Aragao/TecI1_NP1.png?label=ready&title=Ready)](https://waffle.io/Daniel-Aragao/TecI1_NP1)
 # TecI1_NP1
 Repositório para desenvolvimento do trabalho da NP1 de Tecnologias de internet 1 com o professor Rafael Garcia
 
